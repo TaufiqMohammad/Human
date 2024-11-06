@@ -18,21 +18,18 @@ main.py: Runs the interpreter in a REPL (Read-Eval-Print Loop), allowing users t
 Setup
 Requirements
 Python 3.6 or later
-Installation
 
+Installation
 Clone the repository or download the files, then navigate to the project directory:
 git clone <repository-url>
 cd <repository-directory>
 
 Running the Interpreter
 Execute the interpreter by running main.py:
-
 python main.py
-
 
 Usage
 In the REPL environment, you can type commands and execute them by pressing Enter. Each command should end with a semicolon (;). Example commands:
-
 Set x to 10;
 Print x;
 If x > 5 Then
