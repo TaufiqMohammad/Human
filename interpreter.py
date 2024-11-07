@@ -22,18 +22,21 @@ def interpret(ast):
 
 def evaluate_expression(expression):
     if expression[0][0] == 'NUMBER':
-        result = int(expression[0][1])
+        result = int(expression[0][1])  # Convert NUMBER to integer
     elif expression[0][0] == 'ID':
         if expression[0][1] in variables:
             result = variables[expression[0][1]]
         else:
             raise NameError(f"Variable '{expression[0][1]}' is not defined")
+    else:
+        raise SyntaxError("Invalid start of expression")
+
     i = 1
     while i < len(expression):
         operator = expression[i][1]
         operand = expression[i + 1]
         operand_value = int(operand[1]) if operand[0] == 'NUMBER' else variables.get(operand[1], 0)
-        
+
         if operator == '+':
             result += operand_value
         elif operator == '-':
@@ -50,6 +53,10 @@ def evaluate_expression(expression):
             result = int(result < operand_value)
         elif operator == '==':
             result = int(result == operand_value)
+        else:
+            raise SyntaxError(f"Unknown operator: {operator}")
+
         i += 2
+
     return result
-in
+
